@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  ChakraProvider,
+  Box,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
+  extendTheme,
+} from '@chakra-ui/react';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Logo } from './Logo';
+import Home from './components/Home';
+import ScreenRecorder from './components/media';
+// Supports weights 100-800
+import '@fontsource-variable/sora';
+// Supports weights 100-900
+import '@fontsource-variable/work-sans';
+
+const colors = {
+  fonts: {
+    heading: `'Work Sans Variable', sans-serif`,
+    body: `'Work Sans Variable', sans-serif`,
+   
+  },
+}
+
+const theme = extendTheme({ colors })
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={theme}>
+      <Home/>
+    
+    </ChakraProvider>
   );
 }
 
